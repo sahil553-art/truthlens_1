@@ -10,7 +10,7 @@ from .schemas import AnalyzeRequest, AnalysisResponse
 load_dotenv(Path(__file__).resolve().parents[1] / ".env")
 MODE = os.getenv("ANALYSIS_MODE", "demo")
 app = FastAPI(title="TruthLens API", version="0.1.0", description="Explainable misinformation and AI-writing analysis.")
-app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:5173", "https://truthlens-1-six.vercel.app"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
+app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:5173"], allow_origin_regex=r"https://.*\\.vercel\\.app", allow_credentials=False, allow_methods=["*"], allow_headers=["*"])
 
 def make_response(content: str) -> AnalysisResponse:
     provider = get_provider(MODE)
