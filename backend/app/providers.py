@@ -1,6 +1,6 @@
-import json
 """Provider boundary: replace this demo provider with real LLM/search adapters later."""
 from __future__ import annotations
+import json
 import re
 import os
 from abc import ABC, abstractmethod
